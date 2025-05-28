@@ -8,30 +8,15 @@ model_list:
       aws_bedrock_runtime_endpoint: "https://api.ai.public.rakuten-it.com/aws-bedrock/v1"
       extra_headers:
         Authorization: "os.environ/RAKUTEN_AI_API_KEY"
-  - model_name: claude-sonnet-4-staging
-    litellm_params:
-      model: "bedrock/converse/us.anthropic.claude-sonnet-4-20250514-v1%3A0"
-      aws_access_key_id: "AWS"
-      aws_secret_access_key: "AWS"
-      aws_region_name: "us-west-2"
-      aws_bedrock_runtime_endpoint: "https://stg-api-ai-public-rakuten-it.azure-api.net/aws-bedrock/v1"
-      extra_headers:
-        Authorization: "os.environ/RAKUTEN_AI_STG_API_KEY"
-  - model_name: claude-3-7-sonnet-rakuten-direct
+  - model_name: claude-3-7-sonnet-direct
     litellm_params:
       model: "anthropic/claude-3-7-sonnet-20250219"
       api_base: "https://api.ai.public.rakuten-it.com/anthropic/v1"
       api_key: "os.environ/RAKUTEN_AI_API_KEY"
       extra_headers:
+        Authorization: "os.environ/RAKUTEN_AI_API_KEY"
         "anthropic-version": "2023-06-01"
         "content-type": "application/json"
-  - model_name: gemini-2.5-pro
-    litellm_params:
-      model: "openai/google/gemini-2.5-pro-preview-05-06"
-      api_base: "https://api.ai.public.rakuten-it.com/google-vertexai-us/oai-spec/v1/"
-      api_key: "os.environ/RAKUTEN_AI_API_KEY"
-      extra_headers:
-        Authorization: "os.environ/RAKUTEN_AI_API_KEY"
   - model_name: claude-3-7-sonnet
     litellm_params:
       model: "bedrock/converse/us.anthropic.claude-3-7-sonnet-20250219-v1%3A0"
@@ -42,26 +27,13 @@ model_list:
       max_tokens: 8192
       extra_headers:
         Authorization: "os.environ/RAKUTEN_AI_STG_API_KEY"
-  - model_name: claude-3-5-sonnet
+  - model_name: gemini-2.5-pro
     litellm_params:
-      model: "bedrock/anthropic.claude-3-5-sonnet-20241022-v2%3A0"
-      aws_access_key_id: "AWS"
-      aws_secret_access_key: "AWS"
-      aws_region_name: "us-west-2"
-      aws_bedrock_runtime_endpoint: "https://stg-api-ai-public-rakuten-it.azure-api.net/aws-bedrock/v1"
-      max_tokens: 8192
+      model: "openai/google/gemini-2.5-pro-preview-05-06"
+      api_base: "https://api.ai.public.rakuten-it.com/google-vertexai-us/oai-spec/v1/"
+      api_key: "os.environ/RAKUTEN_AI_API_KEY"
       extra_headers:
-        Authorization: "os.environ/RAKUTEN_AI_STG_API_KEY"
-  - model_name: claude-3-5-haiku
-    litellm_params:
-      model: "anthropic.claude-3-5-haiku-20241022-v1%3A0"
-      aws_access_key_id: "AWS"
-      aws_secret_access_key: "AWS"
-      aws_region_name: "us-west-2"
-      aws_bedrock_runtime_endpoint: "https://stg-api-ai-public-rakuten-it.azure-api.net/aws-bedrock/v1"
-      max_tokens: 8192
-      extra_headers:
-        Authorization: "os.environ/RAKUTEN_AI_STG_API_KEY"
+        Authorization: "os.environ/RAKUTEN_AI_API_KEY"
 
 litellm_settings:
   drop_params: true
