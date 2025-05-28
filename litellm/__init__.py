@@ -362,6 +362,10 @@ project = None
 config_path = None
 vertex_ai_safety_settings: Optional[dict] = None
 BEDROCK_CONVERSE_MODELS = [
+    "us.anthropic.claude-sonnet-4-20250514-v1%3A0",
+    "anthropic.claude-opus-4-20250514-v1:0",
+    "anthropic.claude-sonnet-4-20250514-v1:0",
+    "us.anthropic.claude-3-7-sonnet-20250219-v1%3A0",
     "anthropic.claude-opus-4-20250514-v1:0",
     "anthropic.claude-sonnet-4-20250514-v1:0",
     "anthropic.claude-3-7-sonnet-20250219-v1:0",
