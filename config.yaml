@@ -1,0 +1,51 @@
+model_list:
+  - model_name: claude-sonnet-4
+    litellm_params:
+      model: "bedrock/converse/us.anthropic.claude-sonnet-4-20250514-v1%3A0"
+      aws_access_key_id: "AWS"
+      aws_secret_access_key: "AWS"
+      aws_region_name: "us-west-2"
+      aws_bedrock_runtime_endpoint: "https://stg-api-ai-public-rakuten-it.azure-api.net/aws-bedrock/v1"
+      extra_headers:
+        Authorization: "os.environ/RAKUTEN_AI_API_KEY"
+  - model_name: claude-3-7-sonnet-rakuten-direct
+    litellm_params:
+      model: "anthropic/claude-3-7-sonnet-20250219"
+      api_base: "https://api.ai.public.rakuten-it.com/anthropic/v1"
+      api_key: "raik-pat-45344c576r10aif299f2a25e9a40c1d094a11968cfe644f299f2a25e9a40c1d0"
+      extra_headers:
+        "anthropic-version": "2023-06-01"
+        "content-type": "application/json"
+  - model_name: claude-3-7-sonnet
+    litellm_params:
+      model: "bedrock/converse/us.anthropic.claude-3-7-sonnet-20250219-v1%3A0"
+      aws_access_key_id: "AWS"
+      aws_secret_access_key: "AWS"
+      aws_region_name: "us-west-2"
+      aws_bedrock_runtime_endpoint: "https://stg-api-ai-public-rakuten-it.azure-api.net/aws-bedrock/v1"
+      max_tokens: 8192
+      extra_headers:
+        Authorization: "os.environ/RAKUTEN_AI_API_KEY"
+  - model_name: claude-3-5-sonnet
+    litellm_params:
+      model: "bedrock/anthropic.claude-3-5-sonnet-20241022-v2%3A0"
+      aws_access_key_id: "AWS"
+      aws_secret_access_key: "AWS"
+      aws_region_name: "us-west-2"
+      aws_bedrock_runtime_endpoint: "https://stg-api-ai-public-rakuten-it.azure-api.net/aws-bedrock/v1"
+      max_tokens: 8192
+      extra_headers:
+        Authorization: "os.environ/RAKUTEN_AI_API_KEY"
+  - model_name: claude-3-5-haiku
+    litellm_params:
+      model: "anthropic.claude-3-5-haiku-20241022-v1%3A0"
+      aws_access_key_id: "AWS"
+      aws_secret_access_key: "AWS"
+      aws_region_name: "us-west-2"
+      aws_bedrock_runtime_endpoint: "https://stg-api-ai-public-rakuten-it.azure-api.net/aws-bedrock/v1"
+      max_tokens: 8192
+      extra_headers:
+        Authorization: "os.environ/RAKUTEN_AI_API_KEY"
+
+litellm_settings:
+  drop_params: true
