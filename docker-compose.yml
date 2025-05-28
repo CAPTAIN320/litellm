@@ -20,14 +20,21 @@ services:
       STORE_MODEL_IN_DB: "True" # allows adding models to proxy via UI
     env_file:
       - .env # Load local .env file
+    volumes:
+      - ./config.yaml:/app/config.yaml # Mounts the local config file into the container
+    command:
+      - "--config=/app/config.yaml" # Specifies the config file to use when starting the service
     depends_on:
-      - db  # Indicates that this service depends on the 'db' service, ensuring 'db' starts first
-    healthcheck:  # Defines the health check configuration for the container
-      test: [ "CMD-SHELL", "wget --no-verbose --tries=1 http://localhost:4000/health/liveliness || exit 1" ]  # Command to execute for health check
-      interval: 30s  # Perform health check every 30 seconds
-      timeout: 10s   # Health check command times out after 10 seconds
-      retries: 3     # Retry up to 3 times if health check fails
-      start_period: 40s  # Wait 40 seconds after container start before beginning health checks
+      - db # Indicates that this service depends on the 'db' service, ensuring 'db' starts first
+    healthcheck: # Defines the health check configuration for the container
+      test: [
+          "CMD-SHELL",
+          "wget --no-verbose --tries=1 http://localhost:4000/health/liveliness || exit 1",
+        ] # Command to execute for health check
+      interval: 30s # Perform health check every 30 seconds
+      timeout: 10s # Health check command times out after 10 seconds
+      retries: 3 # Retry up to 3 times if health check fails
+      start_period: 40s # Wait 40 seconds after container start before beginning health checks
 
   db:
     image: postgres:16
@@ -47,18 +54,18 @@ services:
       timeout: 5s
       retries: 10
 
-  prometheus:
-    image: prom/prometheus
-    volumes:
-      - prometheus_data:/prometheus
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-    ports:
-      - "9090:9090"
-    command:
-      - "--config.file=/etc/prometheus/prometheus.yml"
-      - "--storage.tsdb.path=/prometheus"
-      - "--storage.tsdb.retention.time=15d"
-    restart: always
+  # prometheus:
+  #   image: prom/prometheus
+  #   volumes:
+  #     - prometheus_data:/prometheus
+  #     - ./prometheus.yml:/etc/prometheus/prometheus.yml
+  #   ports:
+  #     - "9090:9090"
+  #   command:
+  #     - "--config.file=/etc/prometheus/prometheus.yml"
+  #     - "--storage.tsdb.path=/prometheus"
+  #     - "--storage.tsdb.retention.time=15d"
+  #   restart: always
 
 volumes:
   prometheus_data:
