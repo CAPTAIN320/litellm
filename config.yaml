@@ -27,7 +27,7 @@ model_list:
   - model_name: gpt-4.1
     litellm_params:
       model: "openai/gpt-4.1"
-      api_base: "https://api.ai.public.rakuten-it.com/openai/v1/"
+      api_base: "https://api.ai.public.rakuten-it.com/openai/v1/chat/completions"
       api_key: "os.environ/RAKUTEN_AI_API_KEY"
       extra_headers:
         Authorization: "Bearer os.environ/RAKUTEN_AI_API_KEY"
