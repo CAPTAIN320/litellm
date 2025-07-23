@@ -29,7 +29,7 @@ model_list:
         Authorization: "os.environ/RAKUTEN_AI_STG_API_KEY"
   - model_name: gemini-2.5-pro
     litellm_params:
-      model: "openai/google/gemini-2.5-pro-preview-05-06"
+      model: "openai/google/gemini-2.5-pro"
       api_base: "https://api.ai.public.rakuten-it.com/google-vertexai-us/oai-spec/v1/"
       api_key: "os.environ/RAKUTEN_AI_API_KEY"
       extra_headers:
